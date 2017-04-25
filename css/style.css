@@ -100,7 +100,7 @@ a:active {
 	text-align: center;
 	padding: 1em 0;
 	background: #d9e4ea;
-	height: 180px;
+	height: 89px;
 	margin-bottom: 0;
 }
 
@@ -109,12 +109,27 @@ a:active {
 .wrap {
   margin: auto;
   max-width: 900px;
+  min-height:100vh;
 }
 
 .header-arrow {
     display: block;
     margin: auto;
     width: 100px;
+}
+
+/* ================================= 
+  Flexbox
+==================================== */
+
+.list-items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.list-items li {
+  flex-grow: 1;
+  flex-basis: 200px;
 }
 
 
@@ -131,6 +146,10 @@ a:active {
 ==================================== */
 
 @media (min-width: 789px) {
+
+    .wrap {
+        min-height: calc(100vh - 89px);
+    }
 
     .arrow {
         display: inline-block;
@@ -163,7 +182,7 @@ a:active {
 	text-align: center;
 	padding: 1em 0;
 	background: #d9e4ea;
-	height: 220px;
+	height: 89px;
 }
 
 }
