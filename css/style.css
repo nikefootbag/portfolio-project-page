@@ -1,4 +1,6 @@
-/* Base Element Styles -------------------- */
+/* ================================= 
+  Base Styles
+==================================== */
 
 * {
     box-sizing: border-box;
@@ -6,22 +8,19 @@
 
 body {
     font-family: 'Varela Round', sans-serif;
-    font: 1em/1.5;
+    font: 1em/1.6;
     color: #878787;
 }
 
-h1 {
-    
+.name {
+    font-family: 'Lobster', cursive;
     text-shadow: 5px 8px 10px #222;
 }
 
-img {
-    max-width: 100%;
-    margin-bottom: 20px;
-    background-repeat: no-repeat;
+p {
+	font-size: .95em;
+	margin-bottom: 1.5em;
 }
-
-/* Pseudo-classes ------------------ */
 
 a {
     text-decoration: none;
@@ -33,29 +32,49 @@ a:hover {
 }
 
 a:active {
-  color: lightcoral;
+    color: lightcoral;
 }
 
-/* Main Styles --------------------- */
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.name,
+.main-nav li {
+	text-align: center;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.name a,
+.main-nav a {
+	padding: 10px 15px;
+	text-align: center;
+	display: block;
+}
+
+.main-nav a {
+	font-size: .95em;
+	color: #3acec2;
+	border: solid .1px #878787;
+	text-transform: uppercase;
+}
+	
+/* ---- Layout Containers ---- */
 
 .main-header {
     color: tomato;
-    font-family: 'Lobster', cursive;
     background-color: #2c2f30;
     padding-left: 20px;
-    height: 1000px;
-    background-image: url('../img/header-background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     font-size: 1.5em;
+    width: 100%;
+    border: solid;
 }
 
-.main-footer {
-    color: tomato;
-    background-color: #2c2f30;
-    padding-left: 20px;
-    height: 240px;
+.arrow {
+    display: none; 
 }
 
 .t-border {
@@ -63,37 +82,54 @@ a:active {
 }
 
 .list-items {
-    /*margin-top: 20px;*/
-    /*margin-bottom: 100px;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-style: solid solid solid none;
     border-width: 10px;
     border-color: tomato;
     font-size: 1.5em;
 }
 
-/* Layout Styles ------------------ */
+.container {
+	padding-left: 1em;
+	padding-right: 1em;
+}
 
-.primary-content, 
-.secondary-content {
+.main-footer {
+    color: tomato;
+	text-align: center;
+	padding: 1em 0;
+	background: #d9e4ea;
+	height: 89px;
+	margin-bottom: 0;
+}
+
+/* Main Styles ------------------ */
+
+.wrap {
   margin: auto;
   max-width: 900px;
+  min-height:100vh;
 }
 
 .header-arrow {
     display: block;
     margin: auto;
     width: 100px;
-    padding-top: 700px;
 }
 
-/* Floated Columns ------------------ */
+/* ================================= 
+  Flexbox
+==================================== */
 
-.studying {
-    width: 46.5%;
+.list-items {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.studying {
-    float: left;
+.list-items li {
+  flex-grow: 1;
+  flex-basis: 200px;
 }
 
 
@@ -109,11 +145,44 @@ a:active {
   Media Queries
 ==================================== */
 
-@media (min-width: 769px) {
-  .container {
-  width: 70%; /* stops the content from being too wide */
-  max-width: 1000px;
-  margin: 0 auto; /* centers the container content */ 
-  
-  }
+@media (min-width: 789px) {
+
+    .wrap {
+        min-height: calc(100vh - 89px);
+    }
+
+    .arrow {
+        display: inline-block;
+        max-width: 60%;
+        margin-bottom: 20px;
+        background-repeat: no-repeat;
+    }
+
+	.container {
+		width: 90%;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.main-nav {
+		float: right;
+	}
+
+	.name,
+	.main-nav li {
+		float: left;
+	}
+
+	.main-nav li {
+		margin-left: 12px;
+	}
+	
+	.main-footer {
+    color: tomato;
+	text-align: center;
+	padding: 1em 0;
+	background: #d9e4ea;
+	height: 89px;
+}
+
 }
